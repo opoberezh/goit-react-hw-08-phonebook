@@ -39,20 +39,7 @@ export const deleteContact = createAsyncThunk(
     }
 );
 
-export const restoreDeletedContacts = createAsyncThunk(
-    'contacts/restoreDeletedContacts',
-  
-    async (contactsToRestore, thunkAPI) => {
-      try {
-        const response = await axios.put(`/contacts/restore`, { contacts: contactsToRestore  });
-        return response.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      } 
-       
-    } 
-   
-  );
+
 
   
   

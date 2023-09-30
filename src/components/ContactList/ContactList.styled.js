@@ -48,34 +48,34 @@ export const DeleteButton = styled.button`
   }
 `;
 
-export const ResetBtn = styled.button`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+// export const ResetBtn = styled.button`
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
 
-    font-size: 14px;
-    font-weight: 400;
+//     font-size: 14px;
+//     font-weight: 400;
 
-    min-width: 100px;
-    height: 30px;
-    margin: 10px 0 0 0;
+//     min-width: 100px;
+//     height: 30px;
+//     margin: 10px 0 0 0;
 
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #A9A9A9;
-    box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.55);
-    cursor: pointer;
-    background: transparent;
+//     padding: 5px;
+//     border-radius: 5px;
+//     border: 2px solid #A9A9A9;
+//     box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.55);
+//     cursor: pointer;
+//     background: transparent;
 
-    &:focus,
-    &:hover {
-    border: 2px solid #2F4F4F;
-    background: #2F4F4F;
-    color: black;
+//     &:focus,
+//     &:hover {
+//     border: 2px solid #2F4F4F;
+//     background: #2F4F4F;
+//     color: black;
 
-    }
+//     }
 
-    svg {
-        margin-right: 20px;
-    }
-`;
+//     svg {
+//         margin-right: 20px;
+//     }
+// `;

@@ -7,8 +7,6 @@ state.contacts.items;
 
 export const selectDeletedContacts = state => state.contacts.deletedContacts;
 
-export const selectRestoredContacts = state => state.contacts.deletedContacts;
-
 export const selectIsLoading = state => state.contacts.isLoading;
 
 

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { nanoid } from 'nanoid';
-import { fetchContacts, addContacts, deleteContact, restoreDeletedContacts } from "./operations";
+import { fetchContacts, addContacts, deleteContact} from "./operations";
 
 // import initialContacts from '../components/contactsList.json'
 
@@ -32,23 +32,11 @@ const handleDeleteContactFulfilled = (state, action) => {
     state.items.splice(index, 1);
     };
 
-const handleRestoreDeletedContatsFulfilled = (state, action) => {
-    state.isLoading = false;
-    state.error = null;
-    // Удалить восстановленные контакты из state.deletedContacts
-  state.deletedContacts = state.deletedContacts.filter((deletedContact) => {
-    return !action.payload.includes(deletedContact.id);
-  });
-
-  // Добавить восстановленные контакты в state.items
-  state.items = [...state.items, ...action.payload];
-};
 
 export const contactsSlice = createSlice({
     name: 'contacts',
     initialState: {
        items: [],
-       deletedContacts: [],
        isLoading: false,
        error: null,
     },
@@ -64,9 +52,7 @@ export const contactsSlice = createSlice({
    .addCase(deleteContact.pending, handlePending)
    .addCase(deleteContact.fulfilled, handleDeleteContactFulfilled)
    .addCase(deleteContact.rejected, handleRejected)
-   .addCase(restoreDeletedContacts.pending, handlePending)
-   .addCase(restoreDeletedContacts.fulfilled, handleRestoreDeletedContatsFulfilled)
-   .addCase(restoreDeletedContacts.rejected, handleRejected)
+   
 });
 
 export const contactsReducer = contactsSlice.reducer;
