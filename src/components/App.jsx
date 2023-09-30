@@ -1,39 +1,31 @@
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import { ContactForm } from "./ContactForm/ContactForm";
-import { ContactList } from "./ContactList/ContactList";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout/Layout";
-import { GlobalStyle } from "./GlobalStyled";
-import { WrapperContainer } from "./App.styled";
-import { useEffect } from 'react';
-import { Filter } from './Filter/Filter';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
+import {RestrictedRoute} from './RestrictedRoute';
+import {PrivateRoute} from './PrivateRout';
 
+const HomePage = lazy(() => import('./pages/Home'));
+const RegisterPage = lazy(() => import('./pages/Register'));
+const LoginPage = lazy(() => import('./pages/Login'));
+const ContactsPage = lazy(() => import('./pages/Contacts'));
 
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts())
-  }, [dispatch]);
+  
   
   return (
-    <Layout>
-      <WrapperContainer>
-      <ContactForm />
-      {isLoading && !error && <b>Request in progress...</b>}
-        <Filter/>
-        <ContactList/>
-      <ToastContainer />
-      </WrapperContainer>
-      <GlobalStyle/>
-    </Layout>
+<Routes>
+  <Route path="/" element={<Layout/>}>
+    < Route index element={<HomePage/>}/>
+    <Route path="/register" element={
+      <RestrictedRoute
+      redirectTo="/contacts" component={<RegisterPage/>}/>
+     }/>
+  <Route path="/contacts" element={
+    <PrivateRoute redirectTo="/login" component={ContactsPage} />
+  } />   
+
+  </Route>
+</Routes>
   );
 };

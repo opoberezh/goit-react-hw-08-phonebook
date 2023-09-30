@@ -1,8 +1,8 @@
 import {WrapperFilter, TitleStyled, TextStyledFilter, InputStyled} from './Filter.styled';
 import {ImSearch, ImUsers} from "react-icons/im";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
-import {setFilter} from '../../redux/filterSlice';
+import { selectFilter } from 'redux/contacts/selectors';
+import {setFilter} from '../../redux/contacts/filterSlice';
 
 
 const icons = {

@@ -3,8 +3,8 @@ import {ListStyled,  ItemStyled,   DeleteButton, Wrapper} from './ContactList.st
 import {ImUserMinus, ImLoop2} from "react-icons/im";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
-import { selectFilteredContacts } from 'redux/selectors';
+import { deleteContact } from 'redux/contacts/operations';
+import { selectFilteredContacts } from 'redux/contacts/selectors';
 
 
 
