@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import css from './AppBar.module.css';
 
 
-export const AppBar = () => {
+ const AppBar = () => {
     const {isLoggedIn} = useAuth();
     return (
         <header className={css.header}>
@@ -14,3 +14,5 @@ export const AppBar = () => {
         </header>
     )
 }
+
+export default AppBar;

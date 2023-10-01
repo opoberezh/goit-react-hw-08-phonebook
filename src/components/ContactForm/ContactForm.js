@@ -65,7 +65,7 @@ export const ContactForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
-      onSubmit={(values, actions) => {
+      onSubmit={({...values}, actions) => {
         // console.log('Before resetForm');
         onAddContact({...values});
         actions.resetForm();
