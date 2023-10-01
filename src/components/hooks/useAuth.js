@@ -3,7 +3,7 @@ import { selectIsLoggedIn, selectIsRefreshing, selectUser } from "redux/auth/sel
 
 export const useAuth = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
-    const selectIsRefreshing = useSelector(selectIsRefreshing);
+    const isRefreshing = useSelector(selectIsRefreshing);
     const user = useSelector(selectUser);
 
     return {
