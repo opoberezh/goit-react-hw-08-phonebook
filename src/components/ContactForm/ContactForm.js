@@ -66,10 +66,8 @@ export const ContactForm = () => {
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={({...values}, actions) => {
-        // console.log('Before resetForm');
-        onAddContact({...values});
-        actions.resetForm();
-        // console.log('After resetForm');
+      onAddContact({...values});
+      actions.resetForm();
       }}
     >
       {({ handleSubmit }) => (

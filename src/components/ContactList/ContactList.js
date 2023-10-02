@@ -4,7 +4,7 @@ import {ImUserMinus, ImLoop2} from "react-icons/im";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { selectFilteredContacts } from 'redux/contacts/selectors';
+import { selectError, selectFilteredContacts, selectIsLoading } from 'redux/contacts/selectors';
 
 
 
@@ -16,10 +16,13 @@ const icon = {
 
 
 export const ContactList = () => {
-  const filteredContacts = useSelector(selectFilteredContacts); 
-  //  console.log(filteredContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError); 
   
   const dispatch = useDispatch();
+
+
 
   const onDeleteContact = (contactId) => {
     dispatch(deleteContact(contactId));
@@ -27,10 +30,14 @@ export const ContactList = () => {
 
 
 
-if (!Array.isArray(filteredContacts) || filteredContacts.length === 0) {
-  // console.log(filteredContacts);
-  return null;
-}
+  if (!filteredContacts?.length && !error & !isLoading) {
+    return <p>No contacts added yet.</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  };
+
   return (
     <Wrapper>
       

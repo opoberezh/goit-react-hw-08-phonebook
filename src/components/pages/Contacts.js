@@ -1,56 +1,66 @@
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ContactForm } from "components/ContactForm/ContactForm";
 import { ContactList } from "components/ContactList/ContactList";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "redux/contacts/operations";
-import { selectIsLoading } from "redux/contacts/selectors";
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import { GlobalStyle } from 'components/GlobalStyled';
+import { Filter } from 'components/Filter/Filter';
+import { Helmet } from 'react-helmet';
+
+
+const styles = {
+container: {
+display: 'flex',
+flexDirection: 'column',
+justifyContent: 'flex-start',
+alignItems: 'center',
+width: '350px',
+height: 'fit-content',
+margin: 'auto',
+padding: '20px',
+borderRadius: '5px',
+boxShadow:' 6px 6px 6px 0px rgba(0,0,0,0.55)',
+background: 'rgba(245, 245, 220, 0.75)',
+}
+}
+
+
 
 export default function Contacts(){
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoading);
+    const error = useSelector(selectError);
 
     useEffect(() => {
         dispatch(fetchContacts());
     }, [dispatch]);
 
-    return(
+    return (
         <>
         <Helmet>
-            <title>Your contacts</title>
+        <title>Your Contacts</title>
         </Helmet>
-        <ContsctEditor/>
-        <div>{isLoading && 'Request in progress...'}</div>
-        <ContactList/>
+          <div style={styles.container}>
+          <ContactForm />
+          {isLoading && !error && <b>Request in progress...</b>}
+            <Filter/>
+            <ContactList/>
+          <ToastContainer />
+          </div>
+          <GlobalStyle/>
         </>
-    )
-}
+      );
+};
 
 
 
 
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
-// import { ContactForm } from "./ContactForm/ContactForm";
 
-// import { ContactList } from "./ContactList/ContactList";
-// import { Layout } from "./Layout/Layout";
-// import { GlobalStyle } from "./GlobalStyled";
-// import { WrapperContainer } from "./App.styled";
-// import { useEffect } from 'react';
-// import { Filter } from './Filter/Filter';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectError, selectIsLoading } from 'redux/selectors';
-// import { fetchContacts } from 'redux/operations';
-// return (
-//     <Layout>
-//       <WrapperContainer>
-//       <ContactForm />
-//       {isLoading && !error && <b>Request in progress...</b>}
-//         <Filter/>
-//         <ContactList/>
-//       <ToastContainer />
-//       </WrapperContainer>
-//       <GlobalStyle/>
-//     </Layout>
-//   );
+
+
+
+

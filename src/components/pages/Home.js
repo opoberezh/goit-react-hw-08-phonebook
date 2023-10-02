@@ -1,3 +1,5 @@
+
+
 const styles = {
     container:{
         minHeight: 'cala(100vh - 50px)',
@@ -15,11 +17,9 @@ const styles = {
 export default function Home() {
     return (
         <div style = {styles.container}>
-            <h1 style={styles.title}>Task manager welcome page4{''}
-            <span role="img" aria-label="Greeting icon">
-          💁‍♀️ </span>
-            </h1>
-
+            <h1 style={styles.title}>
+                Enjoy Your Phonebook App
+            </h1> 
         </div>
     );
 };
