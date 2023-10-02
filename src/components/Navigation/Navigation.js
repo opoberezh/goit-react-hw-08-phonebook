@@ -12,7 +12,7 @@ export const Navigation = () => {
       </Link>
       {isLoggedIn && (
         <Link className={css.link} to="/contacts">
-          Tasks
+         Contacts
         </Link>
       )}
     </nav>
