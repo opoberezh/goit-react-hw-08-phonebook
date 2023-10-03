@@ -1,4 +1,4 @@
-
+import {RiContactsBook2Line} from 'react-icons/ri';
 
 const styles = {
     container:{
@@ -6,11 +6,19 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justyfyContent: 'center',
+        marginTop: '50px',
     },
     title: {
         fontWeight: 500,
         fontSize: 48,
         textAlign: 'center',
+        color: '#2F4F4F',
+        margin: 'auto',
+    },
+    icon: {
+        fontSize: 64, 
+        verticalAlign: 'middle', 
+        marginLeft: '8px', 
     },
 };
 
@@ -18,7 +26,7 @@ export default function Home() {
     return (
         <div style = {styles.container}>
             <h1 style={styles.title}>
-                Enjoy Your Phonebook App
+                Enjoy Your Phonebook App <RiContactsBook2Line style={styles.icon}/>
             </h1> 
         </div>
     );

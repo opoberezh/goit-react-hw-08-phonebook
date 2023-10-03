@@ -3,10 +3,17 @@
     text-decoration: none;
     padding: 12px;
     font-weight: 700;
-    color: #2a363b;
+    color: #2F4F4F;
   }
   
-  .link.active {
-    color: #e84a5f;
+  .link.active{
+    color: #8B0000;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.55);
+  }
+
+  .link:focus,
+  .link:hover {
+    color: #8B0000;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.55);
   }
   
