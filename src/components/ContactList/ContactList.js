@@ -1,4 +1,4 @@
-import { Filter } from '../Filter/Filter';
+
 import {ListStyled,  ItemStyled,   DeleteButton, Wrapper} from './ContactList.styled';
 import {ImUserMinus, ImLoop2} from "react-icons/im";
 
@@ -40,9 +40,6 @@ export const ContactList = () => {
 
   return (
     <Wrapper>
-      
-      <Filter />
-      
       <ListStyled>
         {filteredContacts.map(({ name, number, id }) => (
           <ItemStyled key={id}>

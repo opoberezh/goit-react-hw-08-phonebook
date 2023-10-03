@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "redux/contacts/operations";
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { GlobalStyle } from 'components/GlobalStyled';
-import { Filter } from 'components/Filter/Filter';
 import { Helmet } from 'react-helmet';
 
 
@@ -46,7 +45,6 @@ export default function Contacts(){
           <div style={styles.container}>
           <ContactForm />
           {isLoading && !error && <b>Request in progress...</b>}
-            <Filter/>
             <ContactList/>
           <ToastContainer />
           </div>
