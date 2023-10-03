@@ -8,7 +8,7 @@ import { fetchContacts } from "redux/contacts/operations";
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { GlobalStyle } from 'components/GlobalStyled';
 import { Helmet } from 'react-helmet';
-import { Filter } from 'components/Filter/Filter';
+// import { Filter } from 'components/Filter/Filter';
 
 
 const styles = {
@@ -45,7 +45,7 @@ export default function Contacts(){
         </Helmet>
           <div style={styles.container}>
           <ContactForm />
-          <Filter/>
+          {/* <Filter/> */}
           {isLoading && !error && <b>Request in progress...</b>}
             <ContactList/>
           <ToastContainer />
