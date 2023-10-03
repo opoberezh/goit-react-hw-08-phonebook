@@ -115,7 +115,7 @@ const RegisterSchema = Yup.object({
                     endAdornment: (
                       <InputAdornment position="end">
                         <IconButton onClick={handlePasswordVisibility}>
-                          {showPassword ? <ImEyeBlocked /> : <ImEye />}
+                          {showPassword ? <ImEye /> : <ImEyeBlocked />}
                         </IconButton>
                       </InputAdornment>
                     ),
